@@ -1,0 +1,89 @@
+html, body {  // remove whitespace created by MUI around bgimage
+  margin: 0;
+  padding: 0;
+}
+
+.background-image {
+  z-index: -1;
+  background-image: url(../public/flyering-bg.jpg);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: auto;
+}
+
+body {
+  background-color: lightgrey;
+}
+
+.title {
+  font-family: 'Ultra', serif;
+  color: #f15400;
+  line-height: 1.2;
+  @media (max-width: 991px) {
+    font-size: 40px;
+    text-align: center;
+  }
+  @media (min-width: 992px) {
+    font-size: 45px;
+    text-align: left;
+  }
+
+}
+
+.flyer-button {
+  background-color: #f2661a;
+  font-weight: 400;
+}
+
+.btn-text {
+  text-transform: unset !important;
+}
+
+.orng-text {
+  color: #d45917;
+}
+
+.desc-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.frmtext {
+  font-family: 'Lora', serif !important;
+  font-weight: 600 !important;
+  color: #000000;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+.map-div {
+  @media (max-width: 575px) {
+    height: 400px;
+    width: 400px;
+  }
+  @media (min-width: 576px) and (max-width: 767px) {
+    height: 400px;
+    width: 600px;
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    height: 500px;
+    width: 700px;
+  }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    height: 500px;
+    width: 600px;
+  }
+  @media (min-width: 1200px) {
+    height: 450px;
+    width: 800px;
+  }
+}
