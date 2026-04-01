@@ -1,106 +1,51 @@
-import { MenuItem, FormControl, FormHelperText, Select } from "@mui/material";
+import { MenuItem, FormControl, Select } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { locationActions } from "../store/store";
 
 const regions = [
-  "AK",
-  "AL",
-  "AR",
-  "AZ",
-  "CA",
-  "CO",
-  "CT",
-  "DE",
-  "FL",
-  "GA",
-  "HI",
-  "IA",
-  "ID",
-  "IL",
-  "IN",
-  "KS",
-  "KY",
-  "LA",
-  "MA",
-  "MD",
-  "ME",
-  "MI",
-  "MN",
-  "MO",
-  "MS",
-  "MT",
-  "NC",
-  "ND",
-  "NE",
-  "NH",
-  "NJ",
-  "NM",
-  "NV",
-  "NY",
-  "OH",
-  "OK",
-  "OR",
-  "PA",
-  "RI",
-  "SC",
-  "SD",
-  "TN",
-  "TX",
-  "UT",
-  "VA",
-  "VT",
-  "WA",
-  "WI",
-  "WV",
-  "WY",
+  "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA",
+  "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD",
+  "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH",
+  "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC",
+  "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY",
 ];
 
 const RegionDropdown = () => {
   const dispatch = useDispatch();
-  const region = useSelector((state) => state.inputRegion);
+  const region = useSelector((state) => state.locationReducer.inputRegion);
 
   const regionHandler = (event) => {
     dispatch(locationActions.editRegion(event.target.value));
   };
 
   return (
-    <FormControl sx={{ minWidth: 150 }}>
+    <FormControl sx={{ minWidth: 130 }}>
       <Select
         sx={{
-          color: "#000000",
-          bgcolor: "#ffffff",
-          fontFamily: "Lora, Serif",
-          fontWeight: 500,
-          "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "grey",
-          },
-          "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "grey.500",
-          },
-          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "grey.300",
-          },
+          bgcolor: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "8px",
+          fontFamily: "Catamaran, sans-serif",
+          color: "#fff",
+          "& .MuiSvgIcon-root": { color: "rgba(255,255,255,0.5)" },
+          "& .MuiOutlinedInput-notchedOutline": { borderColor: "rgba(255,255,255,0.2)" },
+          "&:hover .MuiOutlinedInput-notchedOutline": { borderColor: "rgba(255,255,255,0.35)" },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": { borderColor: "#f58030" },
         }}
         variant="outlined"
         size="small"
-        InputLabelProps={{
-          shrink: false,
-        }}
         displayEmpty
         value={region}
-        defaultValue="Event State"
-        renderValue={(value) => (value === "Event State" ? "Event State" : value)}
+        renderValue={(value) => value || <span style={{ color: "rgba(255,255,255,0.5)" }}>State</span>}
         onChange={regionHandler}
+        MenuProps={{ PaperProps: { sx: { maxHeight: 200 } } }}
       >
-        {regions.map((region) => (
-          <MenuItem key={region} value={region}>
-            {region}
+        {regions.map((r) => (
+          <MenuItem key={r} value={r}>
+            {r}
           </MenuItem>
         ))}
       </Select>
-      <FormHelperText className="frmtext" shrink="true" sx={{ mt: 1, ml: 0 }}>
-        Select a State
-      </FormHelperText>
+      <span className="form-label">Select a State</span>
     </FormControl>
   );
 };

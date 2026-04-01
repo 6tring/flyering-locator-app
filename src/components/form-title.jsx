@@ -1,13 +1,11 @@
-import Grid from "@mui/material/Grid";
-
 const FormTitle = () => {
   return (
-    <Grid className="desc-text" sx={{ lineHeight: 1.3 }}>
-      Find places to hang flyers and posters for your event by entering the{" "}
-      <span className="orng-text">Event Location</span> below, then select from
-      the <span className="orng-text">Flyering Site Type</span> menu
-      and click <span className="orng-text">Lets Flyer!</span>
-    </Grid>
+    <p className="subtitle">
+      Find places to hang flyers by entering an{" "}
+      <span className="orng-text">Event Location</span>, selecting a{" "}
+      <span className="orng-text">Site Type</span>, and clicking{" "}
+      <span className="orng-text">Let's Flyer!</span>
+    </p>
   );
 };
 

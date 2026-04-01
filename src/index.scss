@@ -1,89 +1,203 @@
-html, body {  // remove whitespace created by MUI around bgimage
+html, body {
   margin: 0;
   padding: 0;
-}
-
-.background-image {
-  z-index: -1;
-  background-image: url(../public/flyering-bg.jpg);
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: auto;
-}
-
-body {
-  background-color: lightgrey;
-}
-
-.title {
-  font-family: 'Ultra', serif;
-  color: #f15400;
-  line-height: 1.2;
-  @media (max-width: 991px) {
-    font-size: 40px;
-    text-align: center;
-  }
-  @media (min-width: 992px) {
-    font-size: 45px;
-    text-align: left;
-  }
-
-}
-
-.flyer-button {
-  background-color: #f2661a;
-  font-weight: 400;
-}
-
-.btn-text {
-  text-transform: unset !important;
-}
-
-.orng-text {
-  color: #d45917;
-}
-
-.desc-text {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.frmtext {
-  font-family: 'Lora', serif !important;
-  font-weight: 600 !important;
-  color: #000000;
-}
-
-.scrollable-menu {
-  height: auto;
-  max-height: 200px;
   overflow-x: hidden;
 }
 
-.map-div {
+.background-image {
+  background: linear-gradient(160deg, #1e1e24 0%, #2a2a32 40%, #1a1a20 100%);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 7vh 16px 2vh 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+
   @media (max-width: 575px) {
-    height: 400px;
-    width: 400px;
+    padding: 16px 16px 16px 16px;
   }
-  @media (min-width: 576px) and (max-width: 767px) {
-    height: 400px;
-    width: 600px;
+}
+
+.glass-panel {
+  background: linear-gradient(
+    165deg,
+    rgba(55, 55, 65, 0.75) 0%,
+    rgba(45, 45, 55, 0.65) 50%,
+    rgba(55, 55, 65, 0.75) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 14px;
+  border: 1px solid rgba(120, 120, 135, 0.3);
+  border-top-color: rgba(150, 150, 165, 0.35);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.15);
+  padding: 24px 40px;
+  width: 100%;
+  max-width: 720px;
+  text-align: center;
+
+  @media (max-width: 767px) {
+    max-width: 560px;
+    padding: 28px 24px;
   }
-  @media (min-width: 768px) and (max-width: 991px) {
-    height: 500px;
-    width: 700px;
+  @media (max-width: 575px) {
+    padding: 24px 18px;
+    border-radius: 12px;
   }
-  @media (min-width: 992px) and (max-width: 1199px) {
-    height: 500px;
-    width: 600px;
+}
+
+.title {
+  font-family: "Ultra", serif;
+  font-weight: 400;
+  font-size: 36px;
+  background: linear-gradient(135deg, #a03510 0%, #d86820 18%, #f5a050 38%, #d86820 68%, #a03510 100%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0;
+  margin: 0 0 4px 0;
+  text-align: center;
+  letter-spacing: 3px;
+
+  @media (min-width: 576px) {
+    font-size: 44px;
+    letter-spacing: 4px;
   }
-  @media (min-width: 1200px) {
-    height: 450px;
-    width: 800px;
+  @media (min-width: 768px) {
+    font-size: 52px;
+    letter-spacing: 5px;
+  }
+}
+
+.subtitle {
+  font-family: "Catamaran", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 14px 0;
+  letter-spacing: 0.5px;
+}
+
+.orng-text {
+  color: #f58030;
+  font-weight: 600;
+}
+
+.form-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 14px;
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.form-label {
+  font-family: "Catamaran", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+
+.glass-btn {
+  background: linear-gradient(
+    145deg,
+    rgba(240, 110, 30, 0.9) 0%,
+    rgba(250, 128, 45, 0.75) 50%,
+    rgba(240, 110, 30, 0.9) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 150, 90, 0.45);
+  border-top-color: rgba(255, 200, 150, 0.5);
+  border-bottom-color: rgba(160, 60, 10, 0.4);
+  border-radius: 18px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  padding: 8px 28px;
+  cursor: pointer;
+  box-shadow:
+    0 4px 14px rgba(180, 60, 10, 0.35),
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 2px 2px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: linear-gradient(
+      145deg,
+      rgba(240, 115, 45, 0.8) 0%,
+      rgba(250, 130, 60, 0.65) 50%,
+      rgba(240, 115, 45, 0.8) 100%
+    );
+    border-color: rgba(255, 170, 110, 0.5);
+    border-top-color: rgba(255, 200, 160, 0.55);
+    box-shadow:
+      0 4px 16px rgba(200, 70, 15, 0.35),
+      inset 0 2px 2px rgba(255, 255, 255, 0.35),
+      inset 0 -2px 2px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.map-area {
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(200, 140, 80, 0.08) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top-color: rgba(255, 255, 255, 0.2);
+  padding: 12px;
+  margin: 12px auto 0 auto;
+  max-width: 100%;
+  overflow: hidden;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06);
+}
+
+.map-area iframe {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  display: block;
+  height: 300px;
+
+  @media (min-width: 576px) {
+    height: 340px;
+  }
+}
+
+.footer-text {
+  font-family: "Catamaran", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  margin: 10px 0 0 0;
+
+  a {
+    color: #f58030;
+    text-decoration: none;
+
+    &:hover {
+      color: #f5a050;
+    }
   }
 }

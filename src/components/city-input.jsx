@@ -1,15 +1,13 @@
-import { TextField, FormControl, FormHelperText } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
+import { TextField, FormControl } from "@mui/material";
+import { useDispatch } from "react-redux";
 import { locationActions } from "../store/store";
 
 const CityInput = () => {
-  
   const dispatch = useDispatch();
-  const city = useSelector(state => state.inputCity)
 
   const cityHandler = (event) => {
-    dispatch(locationActions.editCity(event.target.value))
-  }
+    dispatch(locationActions.editCity(event.target.value));
+  };
 
   return (
     <FormControl>
@@ -17,34 +15,22 @@ const CityInput = () => {
         label="Event City"
         variant="outlined"
         size="small"
-        width="100px"
         sx={{
-          color: "#000000",
-          bgcolor: "#ffffff",
-          "& label": {
-            color: "#000000"
-          },
-          "& label.Mui-focused": {
-            color: "#000000",
-          },
+          bgcolor: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "8px",
+          "& label": { color: "rgba(255,255,255,0.5)", fontFamily: "Catamaran, sans-serif" },
+          "& label.Mui-focused": { color: "#f58030" },
           "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-              borderColor: "grey",
-            },
-            "&:hover fieldset": {
-              borderColor: "grey.500",
-            },
-            "&.Mui-focused fieldset": {
-              borderColor: "grey.300",
-            },
+            fontFamily: "Catamaran, sans-serif",
+            color: "#fff",
+            "& fieldset": { borderColor: "rgba(255,255,255,0.2)", borderRadius: "8px" },
+            "&:hover fieldset": { borderColor: "rgba(255,255,255,0.35)" },
+            "&.Mui-focused fieldset": { borderColor: "#f58030" },
           },
         }}
-        InputLabelProps={{ style: { fontFamily: "Lora, Serif", fontWeight: 500 } }}
         onChange={cityHandler}
       />
-      <FormHelperText className="frmtext" shrink="true" sx={{ mt: 1, ml: 0 }}>
-        Please enter a US city or town
-      </FormHelperText>
+      <span className="form-label">Please enter a US city or town</span>
     </FormControl>
   );
 };

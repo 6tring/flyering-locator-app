@@ -1,4 +1,4 @@
-import { MenuItem, FormControl, FormHelperText, Select } from "@mui/material";
+import { MenuItem, FormControl, Select } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { locationActions } from "../store/store";
 
@@ -15,50 +15,40 @@ const siteTypes = [
 
 const SiteTypeDropdown = () => {
   const dispatch = useDispatch();
-  const siteType = useSelector((state) => state.inputSiteType);
+  const siteType = useSelector((state) => state.locationReducer.inputSiteType);
 
   const typeHandler = (event) => {
     dispatch(locationActions.editType(event.target.value));
   };
 
   return (
-    <FormControl sx={{ minWidth: 150 }}>
+    <FormControl sx={{ minWidth: 170 }}>
       <Select
         sx={{
-          color: "#000000",
-          bgcolor: "#ffffff",
-          fontFamily: "Lora, Serif",
-          fontWeight: 500,
-          "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "grey",
-          },
-          "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "grey.500",
-          },
-          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "grey.300",
-          },
+          bgcolor: "rgba(255, 255, 255, 0.1)",
+          borderRadius: "8px",
+          fontFamily: "Catamaran, sans-serif",
+          color: "#fff",
+          "& .MuiSvgIcon-root": { color: "rgba(255,255,255,0.5)" },
+          "& .MuiOutlinedInput-notchedOutline": { borderColor: "rgba(255,255,255,0.2)" },
+          "&:hover .MuiOutlinedInput-notchedOutline": { borderColor: "rgba(255,255,255,0.35)" },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": { borderColor: "#f58030" },
         }}
         variant="outlined"
         size="small"
-        InputLabelProps={{
-          shrink: false,
-        }}
         displayEmpty
         value={siteType}
-        defaultValue="Site Type"
-        renderValue={(value) => (value === "Site Type" ? "Site Type" : value)}
+        renderValue={(value) => value || <span style={{ color: "rgba(255,255,255,0.5)" }}>Site Type</span>}
         onChange={typeHandler}
+        MenuProps={{ PaperProps: { sx: { maxHeight: 200 } } }}
       >
-        {siteTypes.map((siteType) => (
-          <MenuItem key={siteType} value={siteType}>
-            {siteType}
+        {siteTypes.map((type) => (
+          <MenuItem key={type} value={type}>
+            {type}
           </MenuItem>
         ))}
       </Select>
-      <FormHelperText className="frmtext" shrink="true" sx={{ mt: 1, ml: 0 }}>
-        Select a Flyering Site Type
-      </FormHelperText>
+      <span className="form-label">Select a Flyering Site Type</span>
     </FormControl>
   );
 };

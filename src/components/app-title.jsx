@@ -1,11 +1,5 @@
-import Grid from "@mui/material/Grid"; 
-
 const AppTitle = () => {
-  return (
-    <Grid container className="title">
-      Event Flyering Locator
-    </Grid>
-  )
-}
+  return <h1 className="title">Streetwise</h1>;
+};
 
 export default AppTitle;
