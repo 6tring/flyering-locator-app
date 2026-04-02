@@ -1,4 +1,4 @@
-# Streetwise - flyering-locator-app
+# Streetwise - Flyering Locator App
 
 ### React SPA that uses the Google Maps API and manages state with Redux-Toolkit
 
